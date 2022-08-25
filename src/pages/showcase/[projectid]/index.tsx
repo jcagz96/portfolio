@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { GetStaticProps, GetStaticPropsContext, NextPage } from "next/types";
-import { Container, Seta } from "./styles";
+import styled from 'styled-components';
 import { useRouter } from "next/router";
 import Modal from 'react-modal';
 import { gql, useQuery } from "@apollo/client";
@@ -123,3 +123,38 @@ export async function getStaticProps(context: GetStaticPropsContext<{ projectid:
 
 
 export default Project;
+
+export const Container = styled.div`
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
+  img{
+    border-radius: 50px;
+  }
+
+  p{
+    margin-top: 20px;
+  }
+`;
+
+export const Seta = styled.div`
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+
+  img{
+    border-radius: 50px;
+  }
+
+  p{
+    margin-top: 20px;
+  }
+`;

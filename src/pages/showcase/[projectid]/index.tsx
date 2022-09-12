@@ -7,6 +7,10 @@ import { gql, useQuery } from "@apollo/client";
 import { client } from '../../../services/apollo';
 import Link from "next/link";
 import { FiArrowLeft } from "react-icons/fi";
+import EmblaCarousel from "../../../components/Carousel/EmblaCarousel";
+import EmblaCarouselCustom1 from "../../../components/Hero/EmblaCarousel";
+import EmblaCarouselCustom from "../../../components/EmblaCarouselCustom/EmblaCarouselCustom";
+import NoSsr from "../../../components/NoSsr";
 
 const GET_PROJECTS_ID_QUERY = gql`
   query {
@@ -32,8 +36,15 @@ interface GetProjectQueryResponse {
     mainImage: {
       url: string;
     }
+    sliderImages: {
+      url: string;
+      id: string;
+    }[];
   };
 }
+
+const SLIDE_COUNT = 4;
+const slides = Array.from(Array(SLIDE_COUNT).keys());
 
 const Project: NextPage<GetProjectQueryResponse> = ({ projeto }) => {
   let router = useRouter();
@@ -55,13 +66,7 @@ const Project: NextPage<GetProjectQueryResponse> = ({ projeto }) => {
         <h3>
           {projeto.subtitle}
         </h3>
-        <Image
-          src={projeto.mainImage.url}
-          alt={projeto.title}
-          layout="fixed"
-          width={500}
-          height={500}
-        />
+        <EmblaCarouselCustom images={projeto.sliderImages} />
 
         <p>
           {projeto.description}
@@ -108,11 +113,14 @@ export async function getStaticProps(context: GetStaticPropsContext<{ projectid:
               mainImage {
                 url
               }
+              sliderImages {
+                url
+                id
+              }
             }
           }
         `
   });
-
 
   return {
     props: {

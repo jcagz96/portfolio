@@ -11,8 +11,8 @@ const AboutMe: NextPage = () => {
       <Container id="aboutme">
 
         <AboutMeContainer>
-          <h1>About<span>Me</span></h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <h1>João<span> Garcez</span></h1>
+          <p>Atualmente sou software developer na Accenture, trabalho na área de desenvolvimento web. Trabalho essencialmente com Java, Spring, Javascript, HTML, CSS para desenvolver aplicações web. Em projetos pessoais trabalho com React, Nodejs e Typescript. Também tenho experiência na área de desenvolvimento Mobile, aprendi React Native e Flutter e desde então tenho desenvolvido algumas aplicações mobile, como extensão das minhas aplicações web</p>
           <div>
 
             <Link href="https://www.facebook.com/joao.garcez.12/">
@@ -60,10 +60,10 @@ const AboutMe: NextPage = () => {
         <ImageContainer>
           <Image
             className="image"
-            src="/bartsimpson.png"
-            alt="homer simpson"
-            width={250}
-            height={700}
+            src="/camada1.png"
+            alt="joao garcez"
+            width={450}
+            height={600}
           />
         </ImageContainer>
       </Container>

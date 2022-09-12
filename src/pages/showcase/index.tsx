@@ -24,6 +24,9 @@ const GET_PROJECTS_QUERY = gql`
     mainImage {
       url
     }
+    capa {
+      url
+    }
     visible
   }
   }
@@ -39,6 +42,9 @@ interface GetProjectsQueryResponse {
     mainImage: {
       url: string;
     }
+    capa: {
+      url: string;
+    }
     visible: boolean;
   }[];
 }
@@ -51,14 +57,13 @@ const Showcase: NextPage<GetProjectsQueryResponse> = ({ projetos }) => {
     <>
       <Container id="#showcase">
         {projetos !== undefined && projetos.map((project: any) => (
-          <Link key={project} href={`/showcase/${project.slug}`} >
+          <Link key={project.id} href={`/showcase/${project.slug}`} >
             <a>
               <Project >
 
                 <div>
                   <Image
-                    src={project.mainImage.url}
-
+                    src={project.capa.url}
                     alt={project.mainImage.title}
                     layout="fill"
                   />
@@ -104,7 +109,7 @@ export const Container = styled.div`
   margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
+  grid-gap: 20px;
   
   grid-auto-rows: minmax(100px, auto);
 
@@ -116,9 +121,8 @@ export const Container = styled.div`
 
 export const Project = styled.div`
   width: 100%;
-  height: 600px;
   position: relative;
-  background: gray;
+  background: ${(props) => props.theme.colors.header};
   border-radius:20px;
   cursor: pointer;
   
@@ -127,8 +131,8 @@ export const Project = styled.div`
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
     position: relative;
-    height: 500px;
-    background: blue;
+    height: 300px;
+    background: ${(props) => props.theme.colors.secondaryText};
     overflow:hidden;
 
     img{

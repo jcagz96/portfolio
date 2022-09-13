@@ -46,9 +46,7 @@ export const EmblaContainer = styled.div`
     height: 600px;
     width: 958px;
 
-    img{
-      border-radius: 0;
-    }
+
   }
 
 .embla__slide__img {

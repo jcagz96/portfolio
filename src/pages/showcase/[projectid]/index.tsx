@@ -2,7 +2,6 @@ import Image from "next/image";
 import { GetStaticProps, GetStaticPropsContext, NextPage } from "next/types";
 import styled from 'styled-components';
 import { useRouter } from "next/router";
-import Modal from 'react-modal';
 import { gql, useQuery } from "@apollo/client";
 import { client } from '../../../services/apollo';
 import Link from "next/link";
@@ -82,17 +81,27 @@ const Project: NextPage<GetProjectQueryResponse> = ({ projeto }) => {
         <h1>
           {projeto.title}
         </h1>
-        <h5>
-          {projeto.subtitle}
-        </h5>
-        <EmblaCarouselCustom images={projeto.sliderImages} />
+
+        {projeto.subtitle !== projeto.title &&
+          (
+            <h5>
+              {projeto.subtitle !== projeto.title}
+            </h5>
+          )
+        }
+
+        <div style={{ marginTop: 20 }} />
+        {projeto.sliderImages.length > 0 && (<EmblaCarouselCustom images={projeto.sliderImages} />)}
+
+
+
 
         <p>
           {projeto.description}
         </p>
 
         {projeto.techs && (<div className="functionalities">
-          <h4>Para além do descrito acima, o software permite:</h4>
+          <h4>Para além do descrito acima: </h4>
           {projeto.techs.split("\n").map(techs => <p key={techs}>{techs}</p>)}
         </div>)}
 
@@ -107,13 +116,16 @@ const Project: NextPage<GetProjectQueryResponse> = ({ projeto }) => {
                 {tech.items.map(item => (
                   <div key={item.id}>
                     <p >{item.name}</p>
-                    <Image
-                      src={item.url}
-                      alt={item.name}
-                      layout="fixed"
-                      width={32}
-                      height={32}
-                    />
+                    {item.url !== "" && (
+                      <Image
+                        src={item.url}
+                        alt={item.name}
+                        layout="fixed"
+                        width={32}
+                        height={32}
+                      />
+                    )}
+
                   </div>
                 ))}
               </TechsContainer ></>
@@ -144,7 +156,6 @@ export async function getStaticProps(context: GetStaticPropsContext<{ projectid:
   //fetch data for a single meetup
   const projectid = context.params?.projectid;  //acesso to route id from folder [meetupId], this away, because can't use useRouter outsize a component( inside getStaticProps)
 
-  console.log(projectid);
 
   const { data } = await client.query<GetProjectQueryResponse>({
     variables: {
@@ -161,11 +172,11 @@ export async function getStaticProps(context: GetStaticPropsContext<{ projectid:
               mainImage {
                 url
               }
-              sliderImages {
+              sliderImages (last: 30){
                 url
                 id
               }
-              tecnologias (orderBy: categoria_ASC) {
+              tecnologias (orderBy: categoria_ASC, last: 30) {
                 id
                 nome
                 categoria
@@ -189,7 +200,7 @@ export async function getStaticProps(context: GetStaticPropsContext<{ projectid:
           {
             id: tech.id,
             name: tech.nome,
-            url: tech.imagem.url
+            url: tech.imagem === null ? "" : tech.imagem.url
           }
         ]
       })
@@ -199,19 +210,17 @@ export async function getStaticProps(context: GetStaticPropsContext<{ projectid:
       proj[i].items.push({
         id: tech.id,
         name: tech.nome,
-        url: tech.imagem.url
+        url: tech.imagem === null ? "" : tech.imagem.url
       });
     }
   });
 
-  console.log(proj);
 
   const proj1 = {
     ...data.projeto,
     processed: proj
   }
 
-  console.log(proj1);
 
   return {
     props: {
@@ -232,6 +241,7 @@ export const Container = styled.div`
   justify-content: center;
 
   p{
+    margin-top: 30px;
     text-align: justify;
     text-justify: inter-word;
   }
@@ -273,7 +283,7 @@ export const TechsContainer = styled.div`
   margin-bottom: 40px;
 
   div{
-    border: 1px solid red;
+    border: 1px solid ${(props) => props.theme.colors.primary};
     display: flex;
     flex-direction: row;
     align-items: center;

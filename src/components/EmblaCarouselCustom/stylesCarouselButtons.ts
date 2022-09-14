@@ -21,7 +21,7 @@ export const PrevButtonCustom = styled.button`
   fill: #1bcacd;
   padding: 0;
 
-  left: 27px;
+  left: 10px;
 
   &:disabled {
     cursor: default;
@@ -51,7 +51,7 @@ export const NextButtonCustom = styled.button`
   fill: #1bcacd;
   padding: 0;
 
-  right: 27px;
+  right: 10px;
 
   &:disabled {
     cursor: default;

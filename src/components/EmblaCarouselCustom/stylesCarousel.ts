@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const EmblaContainer = styled.div`
   position: relative;
@@ -28,14 +28,12 @@ export const EmblaContainer = styled.div`
     -webkit-touch-callout: none;
     -khtml-user-select: none;
     -webkit-tap-highlight-color: transparent;
-    margin-left: -5px;
     height: 100%;
     width: 100%;
   }
 
   .embla__slide {
     position: relative;
-    padding-left: 10px;
   }
 
   .embla__slide__inner {

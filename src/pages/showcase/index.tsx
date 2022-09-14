@@ -70,7 +70,6 @@ const Showcase: NextPage<GetProjectsQueryResponse> = ({ projetos }) => {
                 </div>
                 <div>
                   <h3>{project.title}</h3>
-                  <h5>{project.subtitle}</h5>
                 </div>
 
               </Project>

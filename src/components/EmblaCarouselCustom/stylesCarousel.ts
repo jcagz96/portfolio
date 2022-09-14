@@ -2,10 +2,11 @@ import styled, { css } from 'styled-components';
 
 export const EmblaContainer = styled.div`
   position: relative;
-  padding: 20px;
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
+
+
 
   .embla__viewport {
     overflow: hidden;
@@ -27,7 +28,7 @@ export const EmblaContainer = styled.div`
     -webkit-touch-callout: none;
     -khtml-user-select: none;
     -webkit-tap-highlight-color: transparent;
-    margin-left: -10px;
+    margin-left: -5px;
     height: 100%;
     width: 100%;
   }
@@ -42,9 +43,7 @@ export const EmblaContainer = styled.div`
     position: relative;
     overflow: hidden;
     height: 600px;
-    width: 958px;
-
-
+    width: 1000px;
   }
 
 .embla__slide__img {

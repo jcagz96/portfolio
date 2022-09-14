@@ -231,6 +231,10 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
 
+  p{
+    text-align: justify;
+    text-justify: inter-word;
+  }
 
   .functionalities{
     margin-bottom: 36px;

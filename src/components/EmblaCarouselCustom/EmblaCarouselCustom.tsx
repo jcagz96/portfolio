@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { DotButton, PrevButton, NextButton } from "./EmblaCarouselButtons";
+import { PrevButton, NextButton } from "./EmblaCarouselButtons";
 import useEmblaCarousel from "embla-carousel-react";
-import { mediaByIndex } from "../Carousel/media";
-import styles from './embla.module.css';
 import Image from 'next/image';
-import { EmblaContainer } from './styles';
+import { EmblaContainer } from './stylesCarousel';
 
 interface EmblaCarouselCustomProps {
   images: ImageProps[];
@@ -55,7 +53,7 @@ const EmblaCarouselCustom = ({ images }: EmblaCarouselCustomProps) => {
 
   return (
     <>
-      <EmblaContainer className={styles.embla}>
+      <EmblaContainer>
         <div className="embla__viewport" ref={viewportRef}>
           <div className="embla__container">
             {images.map((index: ImageProps) => (

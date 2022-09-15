@@ -109,9 +109,9 @@ const Project: NextPage<GetProjectQueryResponse> = ({ projeto }) => {
 
         {projeto.processed && (
           projeto.processed.map((tech) => (
-            <>
+            <div className="languages" key={tech.category}>
               <h3>{tech.category}</h3>
-              <TechsContainer key={tech.category}>
+              <TechsContainer>
 
                 {tech.items.map(item => (
                   <div key={item.id}>
@@ -128,7 +128,7 @@ const Project: NextPage<GetProjectQueryResponse> = ({ projeto }) => {
 
                   </div>
                 ))}
-              </TechsContainer ></>
+              </TechsContainer ></div>
           ))
         )}
       </Container>
@@ -244,6 +244,11 @@ export const Container = styled.div`
     margin-top: 30px;
     text-align: justify;
     text-justify: inter-word;
+
+    @media (max-width: 1064px){
+      padding-left: 16px;
+      padding-right: 16px;
+    }
   }
 
   .functionalities{
@@ -253,9 +258,28 @@ export const Container = styled.div`
     h4{
       margin-top: 36px;
       margin-bottom: 20px;
+
+      @media (max-width: 1064px){
+        padding-left: 16px;
+      }
     }
     p{
       margin: 2px;
+    }
+  }
+
+  .languages{
+    width: 100%;
+
+    @media (max-width: 1064px){
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    h3{
+      @media (max-width: 1064px){
+        text-align: center;
+      }
     }
   }
 
@@ -270,6 +294,11 @@ export const Seta = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
+  @media (max-width: 1064px){
+      padding-left: 16px;
+      padding-right: 16px;
+  }
 `;
 
 export const TechsContainer = styled.div`
@@ -281,6 +310,10 @@ export const TechsContainer = styled.div`
   
 
   margin-bottom: 40px;
+
+  @media (max-width: 1064px){
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   div{
     border: 1px solid ${(props) => props.theme.colors.primary};

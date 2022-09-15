@@ -6,11 +6,30 @@ export const EmblaContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
 
+  background-color: ${(props) => props.theme.colors.body};
+
+  @media (max-width: 1064px){
+      padding-left: 16px;
+      padding-right: 16px;
+  }
+
+
+  @media (max-width: 390px){
+      width: 350px;
+      height: 200px;
+      padding-left: 0px;
+      padding-right: 0px;
+  }
 
 
   .embla__viewport {
     overflow: hidden;
-    width: 100%;
+    width: inherit;
+
+    @media (max-width: 390px){
+      width: 350px;
+      height: 200px;
+    }
   }
 
   .embla__viewport.is-draggable {
@@ -34,6 +53,7 @@ export const EmblaContainer = styled.div`
 
   .embla__slide {
     position: relative;
+    
   }
 
   .embla__slide__inner {
@@ -42,6 +62,12 @@ export const EmblaContainer = styled.div`
     overflow: hidden;
     height: 600px;
     width: 1000px;
+
+    @media (max-width: 390px){
+      width: 350px;
+      height: 200px;
+    }
+
   }
 
 .embla__slide__img {
@@ -54,6 +80,5 @@ export const EmblaContainer = styled.div`
   min-width: 100%;
   max-width: none;
 }
-
 
 `;

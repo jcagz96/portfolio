@@ -7,10 +7,16 @@ import darktheme from "../styles/darkTheme";
 import { ApolloProvider } from '@apollo/client';
 import { client } from '../services/apollo';
 import AppProvider from '../hooks/index';
+import Head from 'next/head'
+
+
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
+      <Head>
+        <title>João Garcez</title>
+      </Head>
       <AppProvider>
         <Layout>
           <Component {...pageProps} />

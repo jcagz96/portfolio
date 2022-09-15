@@ -19,7 +19,7 @@ export const Nav = styled.nav`
   height: auto;
 
 
-  z-index: 1;
+  z-index: 2;
 
   @media (max-width: 768px){
     .dark-mode-toggle{
@@ -35,47 +35,12 @@ export const Hamburger = styled.div<MenuProps>`
   display: none;
   flex-direction: column;
   cursor: pointer;
-  
 
-  span{
-    height: 2px;
-    width: 25px;
-    background: ${(props) => props.theme.colors.secondaryText};
-    margin-bottom: 4px;
-    border-radius: 5px;
-  }
-
-  .first-span{
-    @media (max-width: 768px){
-      display: ${({ isOpen }) => (isOpen ? "none" : "")}
+  svg{
+    &:hover{
+      color: ${(props) => props.theme.colors.secondaryText};
     }
   }
-
- 
-
-  .middle-span:before{
-    @media (max-width: 768px){
-      transform: ${({ isOpen }) => (isOpen ? "rotate(45deg)" : "")};
-    }
-  }
-  .middle-span{
-    
-    @media (max-width: 768px){
-    &:before{
-        content: ' ';
-        transform: ${({ isOpen }) => (isOpen ? "rotate(45deg)" : "")};
-      }
-    }
-  }
-
-  .third-span{
-    @media (max-width: 768px){
-      display: ${({ isOpen }) => (isOpen ? "none" : "")};
-    }
-  }
-
-
-
 
   @media (max-width: 768px){
     display: none;

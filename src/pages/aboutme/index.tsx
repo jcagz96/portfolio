@@ -94,12 +94,25 @@ export const AboutMeContainer = styled.div`
   padding-left: min(50px, 5%);
   padding-right: min(50px, 5%);
 
+
+
   >div{
+    margin-top: 20px;
     display: flex;
     flex: 1;
     flex-direction: row;
     justify-content: space-between;
     text-align: center;
+
+
+
+    @media (max-width: 390px){
+      flex-direction: column;
+
+      a{
+        margin-top: 10px;
+      }
+    }
 
   }
 
@@ -107,6 +120,8 @@ export const AboutMeContainer = styled.div`
     text-align: justify;
     text-justify: inter-word;
   }
+
+  
 
   svg{
     margin-bottom: 1px;

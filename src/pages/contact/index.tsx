@@ -115,22 +115,22 @@ const Contact: NextPage = () => {
       {result === 'sucess' && (
         <Toast message={{
           id: "sucess_msg",
-          title: "sucesso na submissao",
+          title: "Mensagem enviada",
           type: 'success'
         }} key="teste" style={{}} onClick={handleOnCloseToast} />
       )}
       {result === 'error' && (
         <Toast message={{
           id: "error_msg",
-          title: "erro na submissao",
+          title: "Erro ao enviar mensagem",
           type: 'error'
         }} key="teste" style={{}} onClick={handleOnCloseToast} />
       )}
       <Container id="contact">
         <Info>
           <div>
-            <h2>Contact information</h2>
-            <p>Fill up the form and I will get in touch with you.</p>
+            <h3>Informação de contacto</h3>
+            <p>Preencha o formulário para entrar em contacto</p>
 
             <h4><span>📞</span> +351 912042750</h4>
             <h4><span>📧</span> joao10garcez@gmail.com</h4>
@@ -139,15 +139,15 @@ const Contact: NextPage = () => {
         </Info>
         <CustomForm ref={formRef} onSubmit={handleSubmit}>
           <div className="first-div">
-            <CustomInput name="name" icon={MdOutlinePerson} placeholder="Name" />
+            <CustomInput name="name" icon={MdOutlinePerson} placeholder="Nome" />
             <span className="divider" />
             <CustomInput name="email" icon={MdOutlineAlternateEmail} placeholder="Email" />
 
           </div>
           <div>
-            <TextArea name="message" icon={FiMail} placeholder="Message" />
+            <TextArea name="message" icon={FiMail} placeholder="Mensagem" />
           </div>
-          <Button className="btn-submit" type="submit">Submit</Button>
+          <Button className="btn-submit" type="submit">Enviar</Button>
         </CustomForm>
       </Container>
     </>

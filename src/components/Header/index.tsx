@@ -11,6 +11,8 @@ import {
 import "react-toggle/style.css";
 import Toggle from 'react-toggle';
 import { useTheme } from "../../hooks/theme";
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { CgClose, CgMenu } from 'react-icons/cg';
 
 const Header: NextComponentType = () => {
 
@@ -29,9 +31,9 @@ const Header: NextComponentType = () => {
           </Logo>
         </Link>
         <Hamburger isOpen={isOpen} onClick={() => { setIsOpen(!isOpen) }}>
-          <span className="first-span" />
-          <span className="middle-span" />
-          <span className="third-span" />
+
+          {isOpen ? <CgClose style={{ marginRight: -1 }} size={24} /> : <GiHamburgerMenu size={22} />}
+
         </Hamburger>
         <Menu isOpen={isOpen}>
           <Link href="/aboutme" >

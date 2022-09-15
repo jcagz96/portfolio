@@ -56,7 +56,7 @@ const Showcase: NextPage<GetProjectsQueryResponse> = ({ projetos }) => {
   return (
     <>
       <Container id="#showcase">
-        {projetos !== undefined && projetos.map((project: any) => (
+        {projetos && projetos.map((project: any) => (
           <Link key={project.id} href={`/showcase/${project.slug}`} >
             <a>
               <Project >
@@ -146,15 +146,19 @@ export const Project = styled.div`
       &:hover {
 	      -webkit-transform: scale(1.3);
 	      transform: scale(1.3);
-    }
+      }
 
-  }
+    }
     & + div{ 
       margin-top: 10px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+    }
+
+    @media (max-width: 390px){
+      height: 200px;
     }
 
 }

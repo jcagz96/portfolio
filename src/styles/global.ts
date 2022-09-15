@@ -23,7 +23,7 @@ export default createGlobalStyle`
 
   *:focus {
     outline: none;
-}
+  }
 
 
 `;

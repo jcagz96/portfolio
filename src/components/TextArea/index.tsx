@@ -64,7 +64,7 @@ const TextArea: React.FC<InputProps> = ({
         ref={inputRef}
         defaultValue={defaultValue}
         rows={4}
-        placeholder="Message"
+        placeholder="Mensagem"
       />
       {error && (
         <Error title={error}>

@@ -19,7 +19,7 @@ export const ThemeProviderCustom: React.FC<ThemeProviderCustomProps> = ({ childr
   const [theme, setTheme] = useState<string>(() => {
     if (typeof window !== 'undefined') {
       const storageTheme = localStorage.getItem('@Garcez:theme');
-      console.log(`stored theme: ${storageTheme}`);
+      //console.log(`stored theme: ${storageTheme}`);
       if (storageTheme) {
         return storageTheme;
       }
@@ -28,11 +28,11 @@ export const ThemeProviderCustom: React.FC<ThemeProviderCustomProps> = ({ childr
   });
 
   const switchTheme = useCallback(() => {
-    console.log(`theme inicial: ${theme}`);
+    //console.log(`theme inicial: ${theme}`);
     const themeToStore = theme === 'light' ? 'dark' : 'light';
-    console.log(`theme to store: ${themeToStore}`);
+    //console.log(`theme to store: ${themeToStore}`);
     setTheme((currentTheme) => (currentTheme === 'light' ? 'dark' : 'light'));
-    console.log(`theme dps do settheme: ${theme}`);
+    //console.log(`theme dps do settheme: ${theme}`);
 
     localStorage.setItem('@Garcez:theme', themeToStore);
   }, [theme]);

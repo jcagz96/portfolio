@@ -11,10 +11,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   sgMail.setApiKey(String(process.env.SENDGRID_API_KEY));
   const { email, subject, message, name } = req.body;
 
-  console.log(`email: ${email}`);
-  console.log(`subject: ${subject}`);
-  console.log(`message: ${message}`);
-  console.log(`name: ${name}`);
+  //console.log(`email: ${email}`);
+  //console.log(`subject: ${subject}`);
+  //console.log(`message: ${message}`);
+  //console.log(`name: ${name}`);
 
   const msg = {
     to: `${process.env.EMAIL_LOGIN}`,

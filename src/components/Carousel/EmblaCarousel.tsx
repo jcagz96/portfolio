@@ -26,11 +26,11 @@ const EmblaCarousel = ({ slides }: CarouselProps) => {
 
   useEffect(() => {
     if (!embla) {
-      console.log("nao tem embla vai dar return")
+      //console.log("nao tem embla vai dar return")
       return;
     }
 
-    console.log("ja tem  embla")
+    //console.log("ja tem  embla")
     embla.on("select", onSelect);
     onSelect();
   }, [embla, onSelect]);

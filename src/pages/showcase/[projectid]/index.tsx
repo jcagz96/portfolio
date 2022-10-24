@@ -53,6 +53,7 @@ interface GetProjectQueryResponse {
       }[];
     }[];
     techs: string;
+    githubRepo: string;
 
   };
 }
@@ -105,6 +106,11 @@ const Project: NextPage<GetProjectQueryResponse> = ({ projeto }) => {
           {projeto.techs.split("\n").map(techs => <p key={techs}>{techs}</p>)}
         </div>)}
 
+        {projeto.githubRepo && (
+          <div className="gitrepo">
+            <span><b>Github: </b><a href={projeto.githubRepo}>{projeto.githubRepo}</a></span>
+          </div>
+        )}
 
 
         {projeto.processed && (
@@ -185,6 +191,7 @@ export async function getStaticProps(context: GetStaticPropsContext<{ projectid:
                 }
               }
               techs
+              githubRepo
             }
           }
           `
@@ -251,6 +258,10 @@ export const Container = styled.div`
     }
   }
 
+  .gitrepo{
+    align-self: flex-start;
+  }
+
   .functionalities{
     margin-bottom: 36px;
     width: 100%;
@@ -269,6 +280,7 @@ export const Container = styled.div`
   }
 
   .languages{
+    margin-top: 30px;
     width: 100%;
 
     @media (max-width: 1064px){

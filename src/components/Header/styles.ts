@@ -50,7 +50,7 @@ export const Hamburger = styled.div<MenuProps>`
 `;
 
 export const MenuLink = styled.div`
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
@@ -59,6 +59,17 @@ export const MenuLink = styled.div`
 
   &:hover{
     color: ${(props) => props.theme.colors.secondaryText};
+  }
+  @media (max-width: 768px){
+    width: 100%;
+
+    &:hover{
+      background-color: ${(props) => props.theme.colors.body};
+
+      a{
+        color: ${(props) => props.theme.colors.secondaryText};
+      }
+    }
   }
 `;
 
@@ -75,9 +86,28 @@ export const Menu = styled.div<MenuProps>`
     max-height: ${({ isOpen }) => (isOpen ? "300px" : "0")}
   }
 
+  .react-toggle .react-toggle-thumb{
+    background-color: ${(props) => props.theme.colors.body};
+
+    &:active{
+      &:not(.react-toggle--disabled) {
+        background-color: ${(props) => props.theme.colors.body};
+      }
+    }
+  }
+
+  .react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
+    background-color: ${(props) => props.theme.colors.toggle};
+  }
+
+  .react-toggle--checked .react-toggle-track{
+    background-color: ${(props) => props.theme.colors.toggle};
+  }
+
   .react-toggle-track-check{
     margin-top:12px;
     margin-left: -4px;
+
   }
 
   .react-toggle-track-x{

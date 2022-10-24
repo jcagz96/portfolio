@@ -12,9 +12,9 @@ const AboutMe: NextPage = () => {
 
         <AboutMeContainer>
           <h1>João<span> Garcez</span></h1>
-          <p>Atualmente sou software developer na Accenture, trabalho na área de desenvolvimento web. Trabalho essencialmente com Java, Spring, Javascript, HTML, CSS para desenvolver aplicações web. Em projetos pessoais trabalho com React, Nodejs e Typescript. Também tenho experiência na área de desenvolvimento Mobile, aprendi React Native e Flutter e desde então tenho desenvolvido algumas aplicações mobile, como extensão das minhas aplicações web</p>
+          <p>Sempre me interessei por tecnologia e sempre a vi como uma forma de resolver problemas do mundo real. Licenciei-me em Engenharia Informática, atualmente, trabalho como fullstack software developer e conto com três anos de experiência na área da programação. Trabalho com tecnologias como <b>Java</b>, <b>Spring</b>, <b>Javascript</b> e <b>CSS</b>. Fora do trabalho, tenho experiência no desenvolvimento de aplicações web com <b>Reactjs</b>, <b>Nextjs</b>, <b>Nodejs</b> e no desenvolvimento mobile com <b>ReactNative</b> e <b>Flutter</b>. É com criatividade e empenho que me comprometo em todos os projetos em que me envolvo. </p>
           <div>
-
+            {/*
             <Link href="https://www.facebook.com/joao.garcez.12/">
               <a>
                 <span>
@@ -23,6 +23,7 @@ const AboutMe: NextPage = () => {
                 Facebook
               </a>
             </Link>
+             */}
             <Link href="https://www.instagram.com/joaogarcez8/">
               <a>
                 <span>
@@ -31,6 +32,7 @@ const AboutMe: NextPage = () => {
                 Instagram
               </a>
             </Link>
+            {/*
             <Link href="https://twitter.com/JoaoGarcez11">
               <a>
                 <span>
@@ -39,12 +41,13 @@ const AboutMe: NextPage = () => {
                 Twitter
               </a>
             </Link>
+            */}
             <Link href="https://www.linkedin.com/in/joaogarcez/">
               <a>
                 <span>
                   <FaLinkedin />
                 </span>
-                Linkedin
+                LinkedIn
               </a>
             </Link>
             <Link href="https://github.com/jcagz96">
@@ -60,10 +63,10 @@ const AboutMe: NextPage = () => {
         <ImageContainer>
           <Image
             className="image"
-            src="/camada1.png"
+            src="/aboutme_img.png"
             alt="joao garcez"
-            width={450}
-            height={600}
+            width={500}
+            height={500}
           />
         </ImageContainer>
       </Container>
@@ -76,6 +79,12 @@ export default AboutMe;
 
 export const Container = styled.div`
 
+  margin-top: 200px;
+
+  @media (max-width: 768px){
+    margin-top: 0px;
+  }
+
   display: flex;
   flex:1;
   flex-direction: row;
@@ -83,6 +92,13 @@ export const Container = styled.div`
 
   @media (max-width: 768px){
     flex-direction: column-reverse;
+
+  }
+
+  a{
+    svg{
+      margin-bottom: 4px;
+    }
   }
 `;
 
@@ -121,8 +137,6 @@ export const AboutMeContainer = styled.div`
     text-justify: inter-word;
   }
 
-  
-
   svg{
     margin-bottom: 1px;
     margin-right:4px;
@@ -133,6 +147,14 @@ export const ImageContainer = styled.div`
   display: flex;
   flex: 1;
   justify-content: flex-end;
+
+  img{
+    border-radius: 250px;
+  }
+
+  padding: 40px;
+  margin-bottom: 20px;
+  margin-left: 30px;
 `;
 
 

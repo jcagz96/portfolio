@@ -14,10 +14,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
 
   const { email, subject, message, name } = req.body;
 
-  console.log(`email: ${email}`);
-  console.log(`subject: ${subject}`);
-  console.log(`message: ${message}`);
-  console.log(`name: ${name}`);
+  /*   console.log(`email: ${email}`);
+    console.log(`subject: ${subject}`);
+    console.log(`message: ${message}`);
+    console.log(`name: ${name}`); */
 
   const transporter = nodemailer.createTransport({
     port: 465,
@@ -49,7 +49,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
     })
     res.json({ message: `Email has been sent` });
   } catch (error) {
-    console.log(`erro--> ${error}`)
+    //console.log(`erro--> ${error}`)
     res.status(500).json({ message: 'Error sending email' });
   }
 };

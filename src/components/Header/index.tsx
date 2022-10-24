@@ -12,21 +12,21 @@ import "react-toggle/style.css";
 import Toggle from 'react-toggle';
 import { useTheme } from "../../hooks/theme";
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { CgClose, CgMenu } from 'react-icons/cg';
+import { CgClose } from 'react-icons/cg';
 
 const Header: NextComponentType = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const { theme, switchTheme } = useTheme();
 
-  console.log("theme no header: " + theme);
+  //console.log("theme no header: " + theme);
 
   return (
     <>
       <Nav>
         <Link href="/" passHref>
           <Logo>
-            Garcez
+            Início
             {/*<span>João</span>*/}
           </Logo>
         </Link>
@@ -38,19 +38,23 @@ const Header: NextComponentType = () => {
         <Menu isOpen={isOpen}>
           <Link href="/aboutme" >
             <MenuLink onClick={() => { setIsOpen(!isOpen) }}>
-              About Me
+              Sobre mim
             </MenuLink>
           </Link>
           <Link href="/showcase">
             <MenuLink onClick={() => { setIsOpen(!isOpen) }}>
-              Showcase
+              Projetos
             </MenuLink>
           </Link>
           <Link href="/contact">
             <MenuLink onClick={() => { setIsOpen(!isOpen) }}>
-              Contact
+              Contacto
             </MenuLink>
           </Link>
+          <MenuLink>
+            <a href='CV2022EN_JoaoGarcez.pdf' download>Download CV</a>
+          </MenuLink>
+
           <Toggle
             className="dark-mode-toggle"
             checked={theme === 'dark' ? true : false}

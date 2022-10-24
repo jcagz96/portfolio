@@ -12,6 +12,7 @@ interface Theme {
     secondaryText: string;
     danger: string;
     icon: string;
+    toggle: string;
   },
   font: {
     heading: string;

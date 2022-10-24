@@ -62,11 +62,12 @@ const Showcase: NextPage<GetProjectsQueryResponse> = ({ projetos }) => {
               <Project >
 
                 <div>
-                  <Image
+                  {project.capa && (<Image
                     src={project.capa.url}
-                    alt={project.mainImage.title}
+                    alt={project.slug}
                     layout="fill"
-                  />
+                  />)}
+
                 </div>
                 <div>
                   <h3>{project.title}</h3>
@@ -131,7 +132,7 @@ export const Project = styled.div`
     border-top-right-radius: inherit;
     position: relative;
     height: 300px;
-    background: ${(props) => props.theme.colors.secondaryText};
+    
     overflow:hidden;
 
     img{

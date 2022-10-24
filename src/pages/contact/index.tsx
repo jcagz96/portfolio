@@ -94,7 +94,12 @@ const Contact: NextPage = () => {
           const errors = getValidationErrors(error);
 
           formRef.current?.setErrors(errors);
+
+          //console.log("erros: " + JSON.stringify(errors));
         }
+
+
+
         setResult('error');
 
         setTimeout(() => {
@@ -130,12 +135,17 @@ const Contact: NextPage = () => {
         <Info>
           <div>
             <h3>Informação de contacto</h3>
-            <p>Preencha o formulário para entrar em contacto</p>
+            <p>Preenche o formulário para entrar em contacto</p>
+          </div>
 
-            <h4><span>📞</span> +351 912042750</h4>
-            <h4><span>📧</span> joao10garcez@gmail.com</h4>
+          <span />
+
+          <div>
+
+            <h5><span>📧</span> joao10garcez@gmail.com</h5>
             <h4><span>📍</span> Cascais, Lisboa</h4>
           </div>
+
         </Info>
         <CustomForm ref={formRef} onSubmit={handleSubmit}>
           <div className="first-div">
@@ -188,6 +198,10 @@ export const Info = styled.div`
   justify-content: center;
   border-width: 2px;
   border-radius: 6px;
+
+  > span{
+    margin-bottom: 100px;
+  }
 
 `;
 

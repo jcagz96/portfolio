@@ -114,6 +114,30 @@ export const Menu = styled.div<MenuProps>`
     margin-top:12px;
     margin-right: 4px;
   }
+
+  .downloadcv{
+    background: none;
+    border: none;
+    color: ${(props) => props.theme.colors.text};
+    font-size: 0.9rem;
+    padding: 1rem 1.5rem;
+
+    &:hover{
+      color: ${(props) => props.theme.colors.secondaryText};
+    }
+
+    @media (max-width: 768px){
+    width: 100%;
+
+    &:hover{
+      background-color: ${(props) => props.theme.colors.body};
+
+      a{
+        color: ${(props) => props.theme.colors.secondaryText};
+      }
+    }
+  }
+  }
   
 `;
 

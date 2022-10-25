@@ -19,6 +19,14 @@ const Header: NextComponentType = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, switchTheme } = useTheme();
 
+  function download() {
+    const URL = '/CV2022EN_JoaoGarcez.pdf'
+    if (typeof window !== "undefined") {
+      //window.location.href = URL
+      window.open(URL, '_blank');
+    }
+  }
+
   //console.log("theme no header: " + theme);
 
   return (
@@ -51,9 +59,12 @@ const Header: NextComponentType = () => {
               Contacto
             </MenuLink>
           </Link>
-          <MenuLink>
+          {/* <MenuLink>
             <a href='CV2022EN_JoaoGarcez.pdf' download>Download CV</a>
-          </MenuLink>
+          </MenuLink> */}
+          <button className="downloadcv" onClick={download}>
+            Download CV
+          </button>
 
           <Toggle
             className="dark-mode-toggle"

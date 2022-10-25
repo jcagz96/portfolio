@@ -153,7 +153,9 @@ export async function getStaticPaths() {
   return {
     fallback: 'blocking',
     paths: data.projetos.map(project => ({
-      params: { projectid: project.slug.toString() }
+      params: {
+        projectid: project.slug.toString()
+      }
     }))
   }
 }
@@ -161,15 +163,6 @@ export async function getStaticPaths() {
 export async function getStaticProps(context: GetStaticPropsContext<{ projectid: string }>) {
   //fetch data for a single meetup
   const projectid = context.params?.projectid;  //acesso to route id from folder [meetupId], this away, because can't use useRouter outsize a component( inside getStaticProps)
-
-
-  console.log("/n ------> teste " + projectid);
-  console.log("/n ------> teste " + JSON.stringify(context.params));
-
-
-  if (projectid === 'CV2022EN_JoaoGarcez.pdf') {
-    return [];
-  }
 
   const { data } = await client.query<GetProjectQueryResponse>({
     variables: {

@@ -108,7 +108,7 @@ const Project: NextPage<GetProjectQueryResponse> = ({ projeto }) => {
 
         {projeto.githubRepo && (
           <div className="gitrepo">
-            <span><b>Github: </b><a href={projeto.githubRepo}>{projeto.githubRepo}</a></span>
+            <b>Github: </b><a href={projeto.githubRepo}>{projeto.githubRepo}</a>
           </div>
         )}
 
@@ -162,6 +162,14 @@ export async function getStaticProps(context: GetStaticPropsContext<{ projectid:
   //fetch data for a single meetup
   const projectid = context.params?.projectid;  //acesso to route id from folder [meetupId], this away, because can't use useRouter outsize a component( inside getStaticProps)
 
+
+  console.log("/n ------> teste " + projectid);
+  console.log("/n ------> teste " + JSON.stringify(context.params));
+
+
+  if (projectid === 'CV2022EN_JoaoGarcez.pdf') {
+    return [];
+  }
 
   const { data } = await client.query<GetProjectQueryResponse>({
     variables: {
@@ -260,6 +268,10 @@ export const Container = styled.div`
 
   .gitrepo{
     align-self: flex-start;
+    @media (max-width: 1064px){
+      padding-left: 16px;
+      padding-right: 16px;
+    }
   }
 
   .functionalities{

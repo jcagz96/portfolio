@@ -138,7 +138,7 @@ const Contact: NextPage = () => {
             <p>Preenche o formulário para entrar em contacto</p>
           </div>
 
-          <span />
+
 
           <div>
 
@@ -182,22 +182,21 @@ export const Container = styled.div`
   @media (max-width: 768px){
     flex-direction: column;
 
-    > div{
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-    }
+    
   }
 `;
 
 export const Info = styled.div`
   margin-right: 5px;
-  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   border-width: 2px;
   border-radius: 6px;
+
+  div{
+    padding: 10px;
+  }
 
   > span{
     margin-bottom: 100px;
@@ -211,6 +210,7 @@ export const CustomForm = styled(Form)`
   flex-direction: column;
   justify-content: center;
   padding: 10px;
+
 
   >div{
     display: flex;

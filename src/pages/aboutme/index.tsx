@@ -12,7 +12,10 @@ const AboutMe: NextPage = () => {
 
         <AboutMeContainer>
           <h1>João<span> Garcez</span></h1>
-          <p>Sempre me interessei por tecnologia e sempre a vi como uma forma de resolver problemas do mundo real. Licenciei-me em Engenharia Informática, atualmente, trabalho como fullstack software developer e conto com três anos de experiência na área da programação. Trabalho com tecnologias como <b>Java</b>, <b>Spring</b>, <b>Javascript</b> e <b>CSS</b>. Fora do trabalho, tenho experiência no desenvolvimento de aplicações web com <b>Reactjs</b>, <b>Nextjs</b>, <b>Nodejs</b> e no desenvolvimento mobile com <b>ReactNative</b> e <b>Flutter</b>. É com criatividade e empenho que me comprometo em todos os projetos em que me envolvo. </p>
+          <p>Sempre me interessei por tecnologia e sempre a vi como uma forma de resolver problemas do mundo real.</p>
+          <p>Licenciei-me em Engenharia Informática, atualmente, trabalho como fullstack software developer e conto com três anos de experiência na área da programação. Trabalho com tecnologias como <b>Java</b>, <b>Spring</b>, <b>Javascript</b> e <b>CSS</b>.</p>
+          <p>Fora do trabalho, tenho experiência no desenvolvimento de aplicações web com <b>Reactjs</b>, <b>Nextjs</b>, <b>Nodejs</b> e no desenvolvimento mobile com <b>ReactNative</b> e <b>Flutter</b>.
+            É com criatividade e empenho que me comprometo em todos os projetos em que me envolvo. </p>
           <div>
             {/*
             <Link href="https://www.facebook.com/joao.garcez.12/">

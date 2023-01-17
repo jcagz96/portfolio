@@ -20,7 +20,7 @@ const Header: NextComponentType = () => {
   const { theme, switchTheme } = useTheme();
 
   function download() {
-    const URL = '/CV2022EN_JoaoGarcez.pdf'
+    const URL = '/CV2023EN_JoaoGarcez.pdf'
     if (typeof window !== "undefined") {
       //window.location.href = URL
       window.open(URL, '_blank');
